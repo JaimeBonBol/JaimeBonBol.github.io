@@ -118,6 +118,7 @@ body {
 #contenido {
   grid-area: contenido;
   background-color: rgb(247, 244, 231);
+  font-size: 18px;
 }
 #contenido #sobreMi {
   text-align: center;
