@@ -1,0 +1,12 @@
+//Importación de modulos.
+@use "mixins";
+@use "variables";
+
+
+#contenido{
+    @each $seccion in variables.$secciones {
+        ##{$seccion}{
+            @include mixins.estiloSeccion;
+        }
+    }
+}

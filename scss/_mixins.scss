@@ -1,0 +1,74 @@
+//Importación de modulos.
+@use "variables";
+
+@mixin estiloBody{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin centrarBloque{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin centrarTexto{
+    text-align: center;
+}
+
+@mixin alineacionEnFila{
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin alineacionEnColumna{
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin bloqueIzquierda{
+    justify-content: start;
+    //align-items: start;
+    text-align: start;
+}
+
+@mixin bloqueDerecha{
+    justify-content: end;
+    //align-items: end;
+    text-align: end;
+}
+
+@mixin bloqueArriba{
+    text-align: start;
+        justify-content: start;
+}
+
+@mixin estiloLinks{
+    text-decoration: none;
+    color: black;
+    color: variables.$colorContenido;
+}
+
+@mixin estiloLista{
+    list-style: none;
+}
+
+@mixin sticky{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+@mixin estiloSeccion{
+    margin: 35px 35px 35px 35px;
+    padding: 10px 20px 20px 20px;
+    background-color: variables.$colorSeccion;
+    border-radius: 10px;
+    h2{
+        text-align: center;
+        padding-bottom: 20px;
+        border-bottom: solid variables.$colorLineaSeccion;
+        font-size: 25px;
+    }
+}
