@@ -1,0 +1,15 @@
+//Importación de modulos.
+@use "mixins";
+@use "variables";
+
+///Aplica estilos a cada sección dentro de #contenido.
+///Recorre la lista variables.$secciones y genera un selector dinámico.
+///Usa el mixin mixins.estiloSeccion para dar formato a cada sección.
+/// @group Estructuras_Repetitivas
+#contenido{
+    @each $seccion in variables.$secciones {
+        ##{$seccion}{
+            @include mixins.estiloSeccion;
+        }
+    }
+}

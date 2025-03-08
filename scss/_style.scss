@@ -1,0 +1,134 @@
+//Importación de modulos.
+@use "variables";
+@use "mixins";
+@use "estructuras_repetitivas";
+
+body{
+    @include mixins.estiloBody;
+}
+
+///Contenedor principal para la estructura de la página con grid para organizar el layout.
+///@group Layout
+#wrapper{
+    display: grid;
+    grid-template-areas: "menu"
+                        "contenido";
+    
+}
+
+///Menú de navegación principal.
+///Aplica una serie de estilos utilizando mixins.
+///@group Layout
+#menu{
+    grid-area: menu;
+    background-color: variables.$colorMenu;
+    color: variables.$colorContenido;
+    @include mixins.centrarBloque;
+    @include mixins.alineacionEnColumna;
+    @include mixins.sticky;
+    ///Titulo dentro del menuú.
+    h1{
+        font-family: "sans Serif";
+        font-size: 27px;
+        color: variables.$colorContenido;
+    }
+    ///Submenú con información, imagen y texto.
+    #menu_info{
+        @include mixins.alineacionEnFila;
+        @include mixins.centrarBloque;
+        gap: 20px;
+        img{
+            margin: 20px 0 0 20px;
+            height: 140px; 
+            width: 140px;
+            border-radius: 50%;
+            border: 2px solid variables.$colorBordeFoto;
+        }
+    }
+    ///Submenú con más información.
+    #menu_info2{
+        @include mixins.centrarTexto;
+        padding-right: 20px
+    }
+    ///Enlasces de navegación en el menú, que te llevan a cada apartado de la página, y a GitHub.
+    #menu_enlaces{
+        @include mixins.alineacionEnFila;
+        @include mixins.centrarTexto;
+        gap: 10px;
+        padding: 10px 15px 10px 15px;
+        a{
+            @include mixins.estiloLinks;
+            padding: 10px 5px 10px 5px
+        }
+        a:hover {
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out; // Animación suave
+            transform: scale(1.1);  // Aumenta el tamaño del enlace
+            background-color: variables.$colorDifuminadoEnlaces // Fondo semi-transparente
+        }
+    }
+}
+
+///Contenido principal.
+/// Color de fondo aplicado a través de la variable colorContenido.
+///@group Layout
+#contenido{
+    grid-area: contenido;
+    background-color: variables.$colorContenido;
+    ///Sección sobre mí de presentación, que no está en el bucle con las demás ya que tiene un estilo diferente.
+    #sobreMi{
+        @include mixins.centrarTexto;
+        padding: 0 30px 0 30px;
+        h2{
+            font-size: 28px;
+            color: variables.$colorTitulo;
+        }
+    }
+}
+
+///Ajuste para que cuando en el menu pulse un enlace a un div de más abajo, no quede escondido por el menu.
+#contenido > div {
+    scroll-margin-top: 360px;
+}
+
+///Estilo para pantallas grandes (mayores a 850px).
+///Ajusta el tamaño y la disposición del menú y el contenido para pantallas más grandes.
+/// @group MediaQueries
+@media (min-width: 850px){
+    ///Reorganiza el menú y el contenido. Poniendo el menú a la derecha y el contenido a la izquierda.
+    #wrapper{
+        display: grid;
+        grid-template-columns: 70% 30%;
+        grid-template-areas: "contenido menu";
+    }
+    ///Nuevo estilo del menú y sus "submenús" para pantallas grandes.
+    #menu{
+        @include mixins.bloqueArriba;
+        height: 100vh;
+        h1{
+            font-size: 40px
+        }
+        #menu_info{
+            @include mixins.alineacionEnColumna;
+            padding: 0 10px 0 10px;
+            img{
+                width: 170px;
+                height: 170px;
+            }
+        }
+        #menu_info2{
+            padding-left: 10px
+        }
+        #menu_enlaces{
+            @include mixins.alineacionEnColumna;
+        }
+    }
+    ///Alguna modificación en cuanto al contenido para pantallas grandes.
+    #contenido{
+        #sobreMi{
+            h2{
+                font-size: 40px;
+            }
+        }
+    }
+}

@@ -1,0 +1,87 @@
+//Importación de modulos.
+@use "variables";
+
+/// Aplica estilos base al body.
+@mixin estiloBody{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+///Centra un bloque, para centrar div.
+@mixin centrarBloque{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+///Centra texto dentro de un contenedor.
+@mixin centrarTexto{
+    text-align: center;
+}
+
+///Alinea los elementos en filas.
+@mixin alineacionEnFila{
+    display: flex;
+    flex-direction: row;
+}
+
+///Alinea los elementos en columnas.
+@mixin alineacionEnColumna{
+    display: flex;
+    flex-direction: column;
+}
+
+///Pone los elementos en la izquierda.
+@mixin bloqueIzquierda{
+    justify-content: start;
+    //align-items: start;
+    text-align: start;
+}
+
+///Pone los elementos en la derecha.
+@mixin bloqueDerecha{
+    justify-content: end;
+    //align-items: end;
+    text-align: end;
+}
+
+///Pone los elementos en la parte superior de un contenedor.
+@mixin bloqueArriba{
+    text-align: start;
+        justify-content: start;
+}
+
+///Aplica estilo a los links.
+@mixin estiloLinks{
+    text-decoration: none;
+    color: variables.$colorLinks;
+    color: variables.$colorContenido;
+}
+
+///Aplica estilo a las listas.
+@mixin estiloLista{
+    list-style: none;
+}
+
+///Establecer el menu fijo en la parte de arriba.
+@mixin sticky{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+///Aplica estilo a cada sección.
+/// @group Secciones
+@mixin estiloSeccion{
+    margin: 35px 35px 35px 35px;
+    padding: 10px 20px 20px 20px;
+    background-color: variables.$colorSeccion;
+    border-radius: 10px;
+    h2{
+        text-align: center;
+        padding-bottom: 20px;
+        border-bottom: solid variables.$colorLineaSeccion;
+        font-size: 25px;
+    }
+}
