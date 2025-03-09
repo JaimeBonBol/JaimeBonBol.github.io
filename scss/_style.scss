@@ -85,6 +85,20 @@ body{
             color: variables.$colorTitulo;
         }
     }
+    #cv{
+        @include mixins.centrarTexto;
+        a{
+            @include mixins.estiloLinks;
+            color: variables.$colorLinks;
+        }
+        a:hover {
+            border-radius: 5px;
+            padding: 10px 10px 10px 10px;
+            transition: all 0.3s ease-in-out; // Animación suave
+            transform: scale(1.1);  // Aumenta el tamaño del enlace
+            background-color: variables.$colorContenido // Fondo semi-transparente
+        }
+    }
 }
 
 ///Ajuste para que cuando en el menu pulse un enlace a un div de más abajo, no quede escondido por el menu.
@@ -106,6 +120,9 @@ body{
     #menu{
         @include mixins.bloqueArriba;
         height: 100vh;
+        //Para que el menú tenga scroll si la ventana se reduce de alto. Por que con la altura de 
+        //100vh, solo ocupa el alto de la ventana.
+        overflow-y: auto; 
         h1{
             font-size: 40px
         }

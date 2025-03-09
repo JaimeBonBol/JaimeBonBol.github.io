@@ -46,6 +46,18 @@
   border-bottom: solid rgba(109, 107, 107, 0.548) 3px;
   font-size: 25px;
 }
+#contenido #cv {
+  margin: 35px 35px 35px 35px;
+  padding: 10px 20px 20px 20px;
+  background-color: rgba(255, 255, 255, 0.89);
+  border-radius: 10px;
+}
+#contenido #cv h2 {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: solid rgba(109, 107, 107, 0.548) 3px;
+  font-size: 25px;
+}
 
 body {
   width: 100vw;
@@ -128,6 +140,22 @@ body {
   font-size: 28px;
   color: rgb(31, 106, 136);
 }
+#contenido #cv {
+  text-align: center;
+}
+#contenido #cv a {
+  text-decoration: none;
+  color: black;
+  color: rgb(247, 244, 231);
+  color: black;
+}
+#contenido #cv a:hover {
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.1);
+  background-color: rgb(247, 244, 231);
+}
 
 #contenido > div {
   scroll-margin-top: 360px;
@@ -143,6 +171,7 @@ body {
     text-align: start;
     justify-content: start;
     height: 100vh;
+    overflow-y: auto;
   }
   #menu h1 {
     font-size: 40px;

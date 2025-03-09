@@ -4,6 +4,7 @@
 $colorMenu: rgb(31, 106, 136);//rgb(34, 151, 122);
 $colorContenido: rgb(247, 244, 231);
 $colorDifuminadoEnlaces:rgba(255, 255, 255, 0.2);
+$colorDifuminadoCv:rgba(32, 31, 31, 0.274);
 $colorTitulo:$colorMenu;
 $colorSeccion: rgba(255, 255, 255, 0.89);
 $colorLineaSeccion: rgba(109, 107, 107, 0.548) 3px;
@@ -13,7 +14,7 @@ $colorLinks:black;
 ///Lista de secciones.
 ///contiene los id de las secciones del contenido.
 /// @group Variables
-$secciones: "formacion", "experiencia", "conocimientos", "otrosDatos";
+$secciones: "formacion", "experiencia", "conocimientos", "otrosDatos", "cv";
 
 
 ///Tipos de letra.
