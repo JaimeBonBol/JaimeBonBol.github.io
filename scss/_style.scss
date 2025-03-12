@@ -26,6 +26,7 @@ body{
     @include mixins.centrarBloque;
     @include mixins.alineacionEnColumna;
     @include mixins.sticky;
+    font-size:large;
     ///Titulo dentro del menuú.
     h1{
         font-family: "sans Serif";
@@ -113,8 +114,8 @@ body{
     ///Reorganiza el menú y el contenido. Poniendo el menú a la derecha y el contenido a la izquierda.
     #wrapper{
         display: grid;
-        grid-template-columns: 70% 30%;
-        grid-template-areas: "contenido menu";
+        grid-template-columns: 25% 75%;
+        grid-template-areas: "menu contenido";
     }
     ///Nuevo estilo del menú y sus "submenús" para pantallas grandes.
     #menu{
