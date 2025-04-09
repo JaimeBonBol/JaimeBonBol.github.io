@@ -57,7 +57,6 @@
                     </p>
                     <!--<button class="btn btn-outline-dark">Projects</button>-->
                     <a class="btn btn-outline-dark" href="#projects">Projects</a>
-                    
                 </div>
                 <div class="col-sm-6  text-end">
                     <img src="images/yo.png" class="img-fluid  w-150 mx-auto d-block" alt="">
@@ -116,45 +115,44 @@
     <div class="section contact primary-gradient py-5" id="contact">
         <div class="container">
             <h2 class="display-5 fw-bold text-start mb-3">Contact Me</h2>
-            <!--
-            <div class="row mt-5 text-center">
-                <div class="col-sm-4 d-flex justify-content-center align-items-center fs-5">
-                    <a href="mailto:jaimebb2002@gmail.com"> <i class="bi bi-envelope-arrow-up"></i> jaimebb2002@gmail.com</a>
-                </div>
-                <div class="col-sm-4 d-flex justify-content-center align-items-center fs-5">
-                    <div class="social-media">
-                        <a href="https://github.com/JaimeBonBol"><img class="py-4" style="width:50px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg" /></a>
-                        <a href="https://www.infojobs.net/candidate/cv/view/index.xhtml?dgv=3366358773463835229"><img style="width: 80px; height: 60px; padding-left: 15px;" src="images/infojobs-removebg-preview.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-sm-4 d-flex justify-content-center align-items-center fs-5">
-                    <a href="#"> <i class="bi bi-telephone "></i> 605 90 65 94</a>
-                </div>
-            </div>
-            -->
             <div class="row mt-5 text-center">
                 <div class="col-sm-4 d-flex justify-content-center align-items-center fs-5 ">
-                    <a href="mailto:jaimebb2002@gmail.com " style="text-decoration: none; color: black;"> <i class="bi bi-envelope-arrow-up"></i> jaimebb2002@gmail.com</a>
+                    <a href="mailto:jaimebb2002@gmail.com " style="text-decoration: none; color: black;"> <img src="images/mail.png" style="height: 25px; width: 25px;" alt=""> jaimebb2002@gmail.com</a>
                 </div>
                 <div class="col-sm-4 d-flex justify-content-center align-items-center fs-5">
                     <div class="d-flex justify-content-center gap-3 py-4">
                         <a href="https://github.com/JaimeBonBol">
-                            <img style="width: 80px; height: 50px;" src="images/GitHub-logo.png" />
+                            <img style="width: 50px; height: 50px;" src="images/GitHub-logo.png" />
                         </a>
                         <a href="https://www.infojobs.net/...">
-                            <img style="width: 50px; height: 50px;" src="images/infojobs-removebg-preview.png" />
+                            <img style="width: 50px; height: 50px;" src="images/ijob.png" />
                         </a>
                     </div>
                 </div>
                 <div class="col-sm-4 d-flex justify-content-center align-items-center fs-5">
-                    <a href="#" style="text-decoration: none; color: black;"> <i class="bi bi-telephone " ></i> 605 90 65 94</a>
+                    <a href="" style="text-decoration: none; color: black;"> <img src="images/phone.png" style="width: 25px; height: 25px;" alt=""> 605 90 65 94</a>
                 </div>
             </div>
+
+            <footer class="primary-gradient text-center text-muted">
+                <small class="d-flex justify-content-center align-items-center gap-2">
+                    <img src="images/copyright.png" alt="" style="height: 20px; width: 20px;">
+                    Icons by
+                    <a href="https://icons8.com" target="_blank" rel="noopener noreferrer"> Icons8</a>
+                </small>
+                
+            </footer>
+              
         </div>
     </div>
     
-
+    <script src="bootstrap-5.3.3/dist/js/bootstrap.min.js"></script>
     <script src="bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+
+    </script>
     
 </body>
 </html>
