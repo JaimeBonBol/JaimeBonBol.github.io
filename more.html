@@ -89,10 +89,19 @@
                     <h5 class="offcanvas-title" id="offcanvasPdfLabel">CV PDF</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
                 </div>
-                <div class="offcanvas-body p-0">
+                <div class="ratio ratio-1x1 d-block d-md-none"> <!-- relación cuadrada en móviles -->
+                    <iframe src="sources/Curriculum Vitae Jaime Bonilla.pdf" style="border: none;"></iframe>
+                </div>
+            
+                <div class="d-none d-md-block"> <!-- relación completa para escritorio -->
                     <iframe src="sources/Curriculum Vitae Jaime Bonilla.pdf"
                         style="width:100%; height:100vh; border:none;"></iframe>
                 </div>
+                <!--
+                <div class="offcanvas-body p-0">
+                    <iframe src="sources/Curriculum Vitae Jaime Bonilla.pdf"
+                        style="width:100%; height:100vh; border:none;"></iframe>
+                </div>-->
             </div>
             
         </div>
@@ -110,7 +119,7 @@
                         <a href="https://github.com/JaimeBonBol">
                             <img style="width: 50px; height: 50px;" src="images/GitHub-logo.png" />
                         </a>
-                        <a href="https://www.infojobs.net/...">
+                        <a href="https://www.infojobs.net/candidate/cv/view/index.xhtml">
                             <img style="width: 50px; height: 50px;" src="images/ijob.png" />
                         </a>
                     </div>
