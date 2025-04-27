@@ -2,7 +2,6 @@ html, body {
     height: 100%;   /* Asegura que ocupe toda la altura de la página */
     margin: 0;      /* Elimina márgenes predeterminados del navegador */
     padding: 0;     /* Elimina padding predeterminado */
-
 }
 
 .primary-gradient{
@@ -40,6 +39,8 @@ html, body {
 
 .nav-link:hover{
     font-size: 1.5rem;
+    color: #214992;
+    border-radius: 5px;
 }
 
 #home, #formation, #experience, #knowldege, #more, #contact, #projects{
