@@ -34,12 +34,13 @@ html, body {
 
 .navbar-nav .nav-link{
     color: black;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    border-radius: 5%;
+    margin: 0 5px 0 5px;
 }
 
 .nav-link:hover{
-    font-size: 1.5rem;
-    color: #214992;
+    background-color: #cbd8f36e;
     border-radius: 5px;
 }
 
