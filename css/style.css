@@ -60,12 +60,28 @@ html, body {
         transparent
     );
 }
-
+/*
 .carousel-item > a >img {
-    max-height: 400px;
+    max-height: 380px;
     max-width: 80%;
     display: block;
     margin: auto;
+}
+*/
+
+.card-img-top{
+    max-height: 200px;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-link a:hover{
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
 }
 
 a{
