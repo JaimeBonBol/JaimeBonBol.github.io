@@ -3,9 +3,11 @@ if(!localStorage.getItem("lang")){
     localStorage.setItem("lang", "en")
 }
 
-actualizarBotonIdioma();
 let paginaActual = "home";
+cargarNavbar();
 cargarHtml(paginaActual);
+cargarContacto();
+
 
 async function cargarHtml(archivoHtml) {
     
@@ -13,7 +15,7 @@ async function cargarHtml(archivoHtml) {
     paginaActual = archivoHtml;
 
     const lang = localStorage.getItem("lang");
-    const archivoCambiar = `${archivoHtml}-${lang}.html`;
+    const archivoCambiar = `pages/${archivoHtml}-${lang}.html`;
 
     // Se obtiene el archivo que le paso por parámetros, es decir el html que voy a cargar en mi página principal.
     const response = await fetch(archivoCambiar);
@@ -27,6 +29,33 @@ async function cargarHtml(archivoHtml) {
     document.getElementById("contenido-html").innerHTML = texto;
 
 }
+
+async function cargarNavbar() {
+
+    const lang = localStorage.getItem("lang");
+
+    const response = await fetch(`pages/navbar-${lang}.html`);
+
+    if (!response.ok) throw new Error("Error al cargar el navbar");
+
+    const texto = await response.text();
+    document.getElementById("navbar-container").innerHTML = texto;
+    actualizarBotonIdioma();
+
+}
+
+async function cargarContacto() {
+    
+    const lang = localStorage.getItem("lang");
+
+    const response = await fetch(`pages/contact-${lang}.html`);
+
+    if (!response.ok) throw new Error("Error al cargar contacto");
+
+    const texto = await response.text();
+    document.getElementById("contact").innerHTML = texto;
+}
+
 
 function cambiarIdioma(){
 
@@ -48,6 +77,9 @@ function cambiarIdioma(){
 
     // Recargar el contenido actual con el nuevo idioma
     cargarHtml(paginaActual);
+
+    cargarNavbar();
+    cargarContacto();
 
 }
 
