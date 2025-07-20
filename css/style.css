@@ -34,9 +34,8 @@ html, body {
 
 .navbar-nav .nav-link{
     color: black;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     border-radius: 5%;
-    margin: 0 5px 0 5px;
 }
 
 .nav-link:hover{
@@ -88,6 +87,32 @@ a{
     color: black;
     text-decoration: none;
 }
+
+#lang-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s;
+    margin-left: 1rem;
+}
+
+#lang-btn:hover {
+    background-color: #e2e6ea; 
+    transform: scale(1.1);
+}
+
+#lang-btn img {
+    width: 30px;
+    height: 20px;
+}
+
 
 
 @media (min-width: 1080px) {
