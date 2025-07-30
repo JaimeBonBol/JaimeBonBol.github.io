@@ -1,21 +1,97 @@
-let menuVisible = false;
-
-//Elementos HTML
-const nav = document.getElementById("nav");
-
-//Función para ocultar o mostrar el menú
-function mostrarOcultarMenu(){
-    if(menuVisible){
-        nav.classList = "";
-        menuVisible = false;
-    }else{
-        nav.classList = "responsive";   //Para que se le apliquen los estilos dados en el @media...
-        menuVisible = true;
-    }
+// Establecer idioma por defecto si no hay.
+if(!localStorage.getItem("lang")){
+    localStorage.setItem("lang", "en")
 }
 
-//Función para ocultar el menú una vez que selecciono una opción.
-function seleccionar(){
-    nav.classList = "";
-    menuVisible = false;
+let paginaActual = "home";
+cargarNavbar();
+cargarHtml(paginaActual);
+cargarContacto();
+
+
+async function cargarHtml(archivoHtml) {
+    
+    //Se guarda la página actual para recargar si se cambia idioma.
+    paginaActual = archivoHtml;
+
+    const lang = localStorage.getItem("lang");
+    const archivoCambiar = `pages/${archivoHtml}-${lang}.html`;
+
+    // Se obtiene el archivo que le paso por parámetros, es decir el html que voy a cargar en mi página principal.
+    const response = await fetch(archivoCambiar);
+
+    if(!response.ok) throw new Error("Error al cargar el archivo HTML");
+
+    //Se convierte el objeto respuesta( el html ) a texto plano.
+    const texto = await response.text();
+
+    //Se inserta el contenido del html que está en texto plano a mi div.
+    document.getElementById("contenido-html").innerHTML = texto;
+
+}
+
+async function cargarNavbar() {
+
+    const lang = localStorage.getItem("lang");
+
+    const response = await fetch(`pages/navbar-${lang}.html`);
+
+    if (!response.ok) throw new Error("Error al cargar el navbar");
+
+    const texto = await response.text();
+    document.getElementById("navbar-container").innerHTML = texto;
+    actualizarBotonIdioma();
+
+}
+
+async function cargarContacto() {
+    
+    const lang = localStorage.getItem("lang");
+
+    const response = await fetch(`pages/contact-${lang}.html`);
+
+    if (!response.ok) throw new Error("Error al cargar contacto");
+
+    const texto = await response.text();
+    document.getElementById("contact").innerHTML = texto;
+}
+
+
+function cambiarIdioma(){
+
+    //Obtener el idioma actual guardado en localStorage
+    const idiomaActual = localStorage.getItem("lang") || "en";
+
+    //Si el idioma actual es inglés, el siguiente será español, si no al al revés.
+    let siguienteIdioma;
+    if (idiomaActual === "en") {
+        siguienteIdioma = "es";
+    } else {
+        siguienteIdioma = "en";
+    }
+
+    localStorage.setItem("lang", siguienteIdioma);
+
+    // Actualizar botón para mostrar bandera del idioma al que se puede cambiar
+    actualizarBotonIdioma();
+
+    // Recargar el contenido actual con el nuevo idioma
+    cargarHtml(paginaActual);
+
+    cargarNavbar();
+    cargarContacto();
+
+}
+
+function actualizarBotonIdioma() {
+    const idioma = localStorage.getItem("lang") || "en";
+    const langBtnLabel = document.getElementById("lang-btn-label");
+    
+    if (idioma === "en") {
+        // Si está en inglés, botón muestra bandera de España para cambiar a español
+        langBtnLabel.innerHTML = `<img src="images/es.png" style="width:20px;">`;
+    } else {
+        // Si está en español, botón muestra bandera de Reino Unido para cambiar a inglés
+        langBtnLabel.innerHTML = `<img src="images/en.png" style="width:20px;">`;
+    }
 }
