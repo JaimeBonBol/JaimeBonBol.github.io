@@ -1,5 +1,5 @@
 let menuVisible = false;
-
+let nav; // declaración variable global
 
 // Por defecto aparezca el idioma en español
 localStorage.setItem("lenguaje", "es")
@@ -13,21 +13,24 @@ cargarFooter();
 
 
 //Elementos HTML
-const nav = document.getElementById("nav");
+// const nav = document.getElementById("nav");
 
 //Función para ocultar o mostrar el menú
-function mostrarOcultarMenu(){
-    if(menuVisible){
+function mostrarOcultarMenu() {
+    if (!nav) return; // Si nav no existe, no hacer nada
+
+
+    if (menuVisible) {
         nav.classList = "";
         menuVisible = false;
-    }else{
+    } else {
         nav.classList = "responsive";   //Para que se le apliquen los estilos dados en el @media...
         menuVisible = true;
     }
 }
 
 //Función para ocultar el menú una vez que selecciono una opción.
-function seleccionar(){
+function seleccionar() {
     nav.classList = "";
     menuVisible = false;
 }
@@ -36,29 +39,32 @@ function seleccionar(){
 
 // Función para cargar el encabezado
 async function cargarEncabezado() {
-    
+
     const lenguaje = localStorage.getItem("lenguaje");
 
     const response = await fetch(`pages/header-${lenguaje}.html`);
 
-    if(!response.ok) throw new Error("Error al cargar encabezado");
-    
+    if (!response.ok) throw new Error("Error al cargar encabezado");
+
     const texto = await response.text();
 
     document.getElementById("contenedor-header").innerHTML = texto;
+
+    // Ahora que el header está cargado, obtenemos nav
+    nav = document.getElementById("nav");
 
 }
 
 
 // Función para cargar footer
 async function cargarFooter() {
-    
+
     const lenguaje = localStorage.getItem("lenguaje");
 
     const response = await fetch(`pages/footer-${lenguaje}.html`);
 
-    if(!response.ok) throw new Error("Error al cargar encabezado");
-    
+    if (!response.ok) throw new Error("Error al cargar encabezado");
+
     const texto = await response.text();
 
     document.getElementById("footer").innerHTML = texto;
@@ -67,15 +73,15 @@ async function cargarFooter() {
 
 // Función para cargar el contenido del portfolio
 async function cargarContenido() {
-    
+
     // Se obtiene el lenguaje almacenado en el localStorgae
     const lenguaje = localStorage.getItem("lenguaje");
 
     // Se obtiene el archivo que voy a cargar en mi página principal.
     const response = await fetch(`pages/contenido-${lenguaje}.html`);
 
-    if(!response.ok) throw new Error("Error al cargar encabezado");
-    
+    if (!response.ok) throw new Error("Error al cargar encabezado");
+
     // Se convierte el objeto respuesta (html) a texto plano.
     const texto = await response.text();
 
@@ -86,7 +92,7 @@ async function cargarContenido() {
 
 
 // Función para cmabiar el idioma
-function cambiarIdioma(){
+function cambiarIdioma() {
 
     // Obtener el idioma actual guardado en localStorage
     const idiomaActual = localStorage.getItem("lenguaje");
@@ -94,9 +100,9 @@ function cambiarIdioma(){
     // Cargar en una variable el siguiente idioma dependiendo del valor del actual.
     let siguienteIdioma;
 
-    if(idiomaActual === "en"){
+    if (idiomaActual === "en") {
         siguienteIdioma = "es";
-    }else{
+    } else {
         siguienteIdioma = "en";
     }
 

@@ -1,22 +1,24 @@
-(function() {
-  emailjs.init("9Umg-js8UJUN_kRdK"); 
-})();
+// Inicializa EmailJS
+emailjs.init("9Umg-js8UJUN_kRdK");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("form-contacto");
-  const estado = document.getElementById("estado");
+// Escucha cualquier submit en el documento
+document.addEventListener('submit', function (event) {
+    // Solo actuamos si el formulario es el de contacto
+    if (event.target && event.target.id === 'form-contacto') {
+        event.preventDefault();
 
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
+        const form = event.target;
+        const estado = document.getElementById("estado");
 
-    emailjs.sendForm("service_wdhdvst", "template_8rbyng7", this)
-      .then(() => {
-        estado.innerText = "✅ Mensaje enviado con éxito.";
-        form.reset();
-      })
-      .catch((error) => {
-        estado.innerText = "❌ Error al enviar. Intenta de nuevo.";
-        console.error("Error:", error);
-      });
-  });
+        // Enviar con EmailJS
+        emailjs.sendForm("service_wdhdvst", "template_8rbyng7", form)
+            .then(() => {
+                estado.innerText = "Mensaje enviado con éxito.";
+                form.reset();
+            })
+            .catch((error) => {
+                estado.innerText = "Error al enviar. Intenta de nuevo.";
+                console.error("Error EmailJS:", error);
+            });
+    }
 });

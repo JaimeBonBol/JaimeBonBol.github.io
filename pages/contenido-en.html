@@ -29,21 +29,25 @@
             <!-- Sobre mi-->
             <div class="col hobby" style="padding-top: 50px;">
                 <p>
-                    I am a FullStack Developer in training, passionate about technology and creating innovative solutions.
+                    I am a FullStack Developer in training, passionate about technology and creating innovative
+                    solutions.
                     <span>I consider myself organized, responsible, and always eager to learn and improve.</span>
                     Currently, I am focused on software development, aiming to grow professionally as a programmer.
                 </p>
 
                 <p>
-                    I have worked as an Industrial Automation and Robotics Technician, programming PLCs, wiring electrical fuse boxs 
+                    I have worked as an Industrial Automation and Robotics Technician, programming PLCs, wiring
+                    electrical fuse boxs
                     and start up new installations in important production plants like Cosentino.
-                    This experience has provided me solid basis in problem-solving and the practical application of technology,
+                    This experience has provided me solid basis in problem-solving and the practical application of
+                    technology,
                     as well as teamwork and essential skills for the professional world.
                 </p>
 
                 <p>
                     Beyond programming, I enjoy traveling and exploring new places and cities.
-                    I like staying up to date with the latest technologies, as I am naturally curious and love turning ideas into real projects.
+                    I like staying up to date with the latest technologies, as I am naturally curious and love turning
+                    ideas into real projects.
                 </p>
             </div>
         </div>
@@ -215,7 +219,8 @@
                     <h4>Fullstack Developer</h4>
                     <span class="casa">Vice-Rectorate for Digital Transformation at the University of Córdoba</span>
                     <span class="fecha">January 2025 - March 2025</span>
-                    <p>Application development during the first-year internship of Multiplatform Application Development.</p>
+                    <p>Application development during the first-year internship of Multiplatform Application
+                        Development.</p>
                     <div class="conectord">
                         <div class="circulod"></div>
                     </div>
@@ -224,7 +229,7 @@
                     <h4>Industrial Automation and Robotics Technician</h4>
                     <span class="casa">Automatismos Brenton S.L, Córdoba</span>
                     <span class="fecha">September 2023 - August 2024</span>
-                    <p>Wiring automated industrial fuse boxs with PLCs and installing them in an industrial environment, 
+                    <p>Wiring automated industrial fuse boxs with PLCs and installing them in an industrial environment,
                         connecting them to external elements.
                     </p>
                     <div class="conectord">
@@ -296,7 +301,7 @@
                 <div class="overlay">
                     <h3>Mysql</h3>
                     <p>DDL, DML y DQL</p>
-                    <a href="https://github.com/JaimeBonBol/BBDD" target="_blank" >See Repository</a>
+                    <a href="https://github.com/JaimeBonBol/BBDD" target="_blank">See Repository</a>
                 </div>
             </div>
             <div class="proyecto">
@@ -364,10 +369,14 @@
             <!-- Columna derecha (formulario) -->
             <div class="col">
                 <form id="form-contacto" class="formulario">
-                    <input type="text" name="user_name" placeholder="Tu nombre" required>
-                    <input type="email" name="user_email" placeholder="Tu correo" required>
-                    <textarea name="message" placeholder="Escribe tu mensaje..." required></textarea>
-                    <button type="submit" class="btn-contacto">Enviar</button>
+                    <label for="user_name">Nombre</label>
+                    <input type="text" name="user_name" id="user_name" required>
+                    <label for="user_email">Correo</label>
+                    <input type="email" name="user_email" id="user_email" required>
+                    <label for="message">Mensaje</label>
+                    <textarea name="message" id="message" required></textarea>
+
+                    <input class="btn-contacto" type="submit" value="Enviar">
                 </form>
                 <p id="estado" style="margin-top:15px; color:#31A2AC;"></p>
             </div>

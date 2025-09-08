@@ -423,13 +423,19 @@
             <!-- Columna derecha (formulario) -->
             <div class="col">
                 <form id="form-contacto" class="formulario">
-                    <input type="text" name="user_name" placeholder="Tu nombre" required>
-                    <input type="email" name="user_email" placeholder="Tu correo" required>
-                    <textarea name="message" placeholder="Escribe tu mensaje..." required></textarea>
-                    <button type="submit" class="btn-contacto">Enviar</button>
+                    <label for="user_name">Nombre</label>
+                    <input type="text" name="user_name" id="user_name" required>
+                    <label for="user_email">Correo</label>
+                    <input type="email" name="user_email" id="user_email" required>
+                    <label for="message">Mensaje</label>
+                    <textarea name="message" id="message" required></textarea>
+
+                    <input class="btn-contacto" type="submit" value="Enviar">
                 </form>
                 <p id="estado" style="margin-top:15px; color:#31A2AC;"></p>
             </div>
 
+
         </div>
+
 </section>
