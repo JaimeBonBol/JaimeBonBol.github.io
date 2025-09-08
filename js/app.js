@@ -1,97 +1,111 @@
-// Establecer idioma por defecto si no hay.
-if(!localStorage.getItem("lang")){
-    localStorage.setItem("lang", "en")
+let menuVisible = false;
+
+
+// Por defecto aparezca el idioma en español
+localStorage.setItem("lenguaje", "es")
+
+// Cargar encabezado y footer lo primero
+cargarEncabezado();
+
+cargarContenido();
+
+cargarFooter();
+
+
+//Elementos HTML
+const nav = document.getElementById("nav");
+
+//Función para ocultar o mostrar el menú
+function mostrarOcultarMenu(){
+    if(menuVisible){
+        nav.classList = "";
+        menuVisible = false;
+    }else{
+        nav.classList = "responsive";   //Para que se le apliquen los estilos dados en el @media...
+        menuVisible = true;
+    }
 }
 
-let paginaActual = "home";
-cargarNavbar();
-cargarHtml(paginaActual);
-cargarContacto();
+//Función para ocultar el menú una vez que selecciono una opción.
+function seleccionar(){
+    nav.classList = "";
+    menuVisible = false;
+}
 
+// USO DE FETCH PARA CARGAR UN HTML U OTRO DEPENDIENDO DEL IDIOMA ALMACENADO EN LOCALSTORAGE
 
-async function cargarHtml(archivoHtml) {
+// Función para cargar el encabezado
+async function cargarEncabezado() {
     
-    //Se guarda la página actual para recargar si se cambia idioma.
-    paginaActual = archivoHtml;
+    const lenguaje = localStorage.getItem("lenguaje");
 
-    const lang = localStorage.getItem("lang");
-    const archivoCambiar = `pages/${archivoHtml}-${lang}.html`;
+    const response = await fetch(`pages/header-${lenguaje}.html`);
 
-    // Se obtiene el archivo que le paso por parámetros, es decir el html que voy a cargar en mi página principal.
-    const response = await fetch(archivoCambiar);
+    if(!response.ok) throw new Error("Error al cargar encabezado");
+    
+    const texto = await response.text();
 
-    if(!response.ok) throw new Error("Error al cargar el archivo HTML");
+    document.getElementById("contenedor-header").innerHTML = texto;
 
-    //Se convierte el objeto respuesta( el html ) a texto plano.
+}
+
+
+// Función para cargar footer
+async function cargarFooter() {
+    
+    const lenguaje = localStorage.getItem("lenguaje");
+
+    const response = await fetch(`pages/footer-${lenguaje}.html`);
+
+    if(!response.ok) throw new Error("Error al cargar encabezado");
+    
+    const texto = await response.text();
+
+    document.getElementById("footer").innerHTML = texto;
+
+}
+
+// Función para cargar el contenido del portfolio
+async function cargarContenido() {
+    
+    // Se obtiene el lenguaje almacenado en el localStorgae
+    const lenguaje = localStorage.getItem("lenguaje");
+
+    // Se obtiene el archivo que voy a cargar en mi página principal.
+    const response = await fetch(`pages/contenido-${lenguaje}.html`);
+
+    if(!response.ok) throw new Error("Error al cargar encabezado");
+    
+    // Se convierte el objeto respuesta (html) a texto plano.
     const texto = await response.text();
 
     //Se inserta el contenido del html que está en texto plano a mi div.
-    document.getElementById("contenido-html").innerHTML = texto;
+    document.getElementById("contenido").innerHTML = texto;
 
 }
 
-async function cargarNavbar() {
 
-    const lang = localStorage.getItem("lang");
-
-    const response = await fetch(`pages/navbar-${lang}.html`);
-
-    if (!response.ok) throw new Error("Error al cargar el navbar");
-
-    const texto = await response.text();
-    document.getElementById("navbar-container").innerHTML = texto;
-    actualizarBotonIdioma();
-
-}
-
-async function cargarContacto() {
-    
-    const lang = localStorage.getItem("lang");
-
-    const response = await fetch(`pages/contact-${lang}.html`);
-
-    if (!response.ok) throw new Error("Error al cargar contacto");
-
-    const texto = await response.text();
-    document.getElementById("contact").innerHTML = texto;
-}
-
-
+// Función para cmabiar el idioma
 function cambiarIdioma(){
 
-    //Obtener el idioma actual guardado en localStorage
-    const idiomaActual = localStorage.getItem("lang") || "en";
+    // Obtener el idioma actual guardado en localStorage
+    const idiomaActual = localStorage.getItem("lenguaje");
 
-    //Si el idioma actual es inglés, el siguiente será español, si no al al revés.
+    // Cargar en una variable el siguiente idioma dependiendo del valor del actual.
     let siguienteIdioma;
-    if (idiomaActual === "en") {
+
+    if(idiomaActual === "en"){
         siguienteIdioma = "es";
-    } else {
+    }else{
         siguienteIdioma = "en";
     }
 
-    localStorage.setItem("lang", siguienteIdioma);
+    // Asignar a la variable de localStorage el siguiente idioma para que cambie el valor guardado.
+    localStorage.setItem("lenguaje", siguienteIdioma);
 
-    // Actualizar botón para mostrar bandera del idioma al que se puede cambiar
-    actualizarBotonIdioma();
+    // Recargar las ṕaginas ahora con el siguiente idioma.
+    cargarEncabezado();
+    cargarContenido();
+    cargarFooter();
 
-    // Recargar el contenido actual con el nuevo idioma
-    cargarHtml(paginaActual);
-
-    cargarNavbar();
-    cargarContacto();
-
-}
-
-function actualizarBotonIdioma() {
-    const idioma = localStorage.getItem("lang") || "en";
-    const langBtnLabel = document.getElementById("lang-btn-label");
-    
-    if (idioma === "en") {
-        // Si está en inglés, botón muestra bandera de España para cambiar a español
-        langBtnLabel.innerHTML = `<img src="images/es.png" style="width:20px;">`;
-    } else {
-        // Si está en español, botón muestra bandera de Reino Unido para cambiar a inglés
-        langBtnLabel.innerHTML = `<img src="images/en.png" style="width:20px;">`;
-    }
 }
