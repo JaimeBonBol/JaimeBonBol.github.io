@@ -88,6 +88,10 @@ async function cargarContenido() {
     //Se inserta el contenido del html que está en texto plano a mi div.
     document.getElementById("contenido").innerHTML = texto;
 
+    // Conectar el formulario después de insertar el contenido (así me aseguro que ha cargado el formulario en el DOM)
+    conectarFormulario();
+
+
 }
 
 
@@ -114,4 +118,30 @@ function cambiarIdioma() {
     cargarContenido();
     cargarFooter();
 
+}
+
+// FORMULARIO DE CONTACTO
+
+// Conecta el formulario cargado dinámicamente
+function conectarFormulario() {
+    const iframe = document.getElementById("iframe-oculto");
+    const estado = document.getElementById("estado");
+    const form = document.getElementById("form-contacto");
+
+    // Verificar que existan los elementos
+    if (!iframe || !form || !estado) {
+        console.warn("Formulario, iframe o estado no encontrados");
+        return;
+    }
+
+    // Listener que se ejecuta cuando FormSubmit carga el iframe (mensaje enviado)
+    iframe.addEventListener("load", () => {
+        estado.textContent = "Mensaje enviado correctamente. ¡Gracias!";
+        form.reset(); // Limpia los campos del formulario
+
+        // Eliminar mensaje después de 5s
+        setTimeout(() => {
+            estado.textContent = "";
+        }, 5000);
+    });
 }

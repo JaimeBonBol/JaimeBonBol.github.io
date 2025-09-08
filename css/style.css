@@ -858,7 +858,11 @@ footer small a {
 @media screen and (max-width: 700px) {
 
     .inicio .inicio-contenido {
-        margin-top: 250px;
+        margin-top: 180px;
+    }
+
+    .inicio-contenido .intro {
+        display: none;
     }
 
     .inicio-contenido .invitacion {
