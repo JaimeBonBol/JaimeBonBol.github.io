@@ -776,6 +776,16 @@ img {
     resize: none;
 }
 
+/* Aviso de seguridad debajo del formulario */
+.form-warning {
+    background-color: #2d4e53;  /* fondo oscuro, distinto al formulario */
+    color: #31A2AC;              /* rojo para advertencia */
+    padding: 10px 15px;
+    border-left: 4px solid #db8c57; /* barra lateral roja */
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+}
 
 
 /* FOOTER*/
