@@ -1,29 +1,480 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio-CV Jaime</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Jaime - Software Developer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="">
+<body>
+    <nav class="nav-pill" id="navbar">
+        <ul class="nav-links">
+            <li><a href="#about">Sobre Mí</a></li>
+            <li><a href="#stack">Stack</a></li>
+            <li><a href="#projects">Proyectos</a></li>
+            <li><a href="#timeline">Trayectoria</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">Contactar <i class="fa-solid fa-arrow-right icon-sm"></i></a>
 
-    <!-- MENU ENCABEZADO -->
-    <div id="contenedor-header"></div>
+        <button class="hamburger-menu" aria-label="Abrir Menú">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
 
-    <!-- CONTENIDO PRINCIPAL PORTFOLIO-->
-    <div id="contenido"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-links">
+            <a href="#about" class="mob-link">Sobre Mí</a>
+            <a href="#stack" class="mob-link">Stack</a>
+            <a href="#projects" class="mob-link">Proyectos</a>
+            <a href="#timeline" class="mob-link">Trayectoria</a>
+            <a href="#contact" class="mob-link">Contactar</a>
+        </div>
+    </div>
 
-    <!-- FOOTER-->
-    <div id="footer"></div>
+    <!-- Hero Native with Canvas Waves -->
+    <header class="hero" id="home">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-gradient-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Hola, soy Jaime.<br>
+                <span class="gradient-text">Desarrollador de Software</span>
+            </h1>
+            <p class="hero-subtitle">Organizado, responsable y apasionado por transformar grandes ideas en código funcional.</p>
 
-    <script src="js/app.js"></script>
+            <div class="hero-magnetic-actions">
+                <a href="https://github.com/JaimeBonBol" target="_blank" class="mag-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/jaimebonilla-dev" target="_blank" class="mag-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="#contact" class="mag-btn btn-primary"><i class="fa-solid fa-envelope"></i> Contactar</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- 3. Sobre Mí -->
+        <section id="about" class="section highlights hidden-scroll">
+            <div class="invisible-grid">
+                <div class="highlight-item">
+                    <i class="fa-solid fa-laptop-code highlight-icon"></i>
+                    <h3>Perfil Técnico</h3>
+                    <p>En formación constante en el mundo del desarrollo informático, disposición para aprender nuevas herramientas y adaptarme a diferentes retos.</p>
+                </div>
+                <div class="highlight-item">
+                    <i class="fa-solid fa-microchip highlight-icon"></i>
+                    <h3>Background Industrial</h3>
+                    <p>Experiencia previa como Técnico de Automatización y Robótica Industrial (PLC). Esto me ha dotado de una capacidad de resolución de problemas.</p>
+                </div>
+                <div class="highlight-item">
+                    <i class="fa-solid fa-compass highlight-icon"></i>
+                    <h3>Curiosidad & Mejora</h3>
+                    <p>Apasionado por descubrir nuevas tecnologías y aprender de ellas. Trato cada
+                        nuevo proyecto como un reto creativo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Tech Stack -->
+        <section id="stack" class="section stack-section hidden-scroll">
+            <h2 class="section-title">Stack Tecnológico</h2>
+            <div class="tech-grid-cols" id="techGrid">
+                <!-- Columna 1 -->
+                <div class="tech-col">
+                    <h4>Lenguajes</h4>
+                    <ul class="tech-list native-imgs">
+                        <li> <i class="fa-brands fa-java"></i> Java</li>
+                        <li><i class="fa-brands fa-js"></i> JavaScript</li>
+                        <li><i class="fa-brands fa-html5"></i> HTML5</li>
+                        <li class="extra-tech"><i class="fa-brands fa-css3-alt"></i> CSS / <i
+                                class="fa-brands fa-sass"></i> SASS</li>
+                        
+                    </ul>
+                </div>
+                <!-- Columna 2 -->
+                <div class="tech-col">
+                    <h4>Frameworks / Core</h4>
+                    <ul class="tech-list native-imgs">
+                        <li><img src="images/images-skills/springboot.png" alt="Spring"> Spring Boot</li>
+                        <li><i class="fa-brands fa-angular"></i> Angular</li>
+                        <li class="extra-tech"><i class="fa-brands fa-bootstrap"></i> Bootstrap
+                        </li>
+                    </ul>
+                </div>
+                <!-- Columna 3 -->
+                <div class="tech-col">
+                    <h4>Bases de Datos</h4>
+                    <ul class="tech-list native-imgs">
+                        <li><img src="images/images-skills/mysql.png" alt="MySQL"> MySQL</li>
+                        <li><img src="images/images-skills/postgre.png" alt="PostgreSQL"> PostgreSQL</li>
+                        <li><img src="images/images-skills/pgadmin.png" alt="pgAdmin"> pgAdmin</li>
+                        <li><img src="images/images-skills/phpmyad.png" alt="phpMyAdmin"> phpMyAdmin</li>
+                        <li class="extra-tech"><i class="fa-solid fa-table"></i> Diseño DDL/DML</li>
+                        <li><i class="fa-solid fa-database"></i> SQL</li>
+                    </ul>
+                </div>
+                <!-- Columna 4 -->
+                <div class="tech-col">
+                    <h4>Herramientas & OS</h4>
+                    <ul class="tech-list native-imgs">
+                        <li><i class="fa-brands fa-git-alt"></i> Git</li>
+                        <li><i class="fa-brands fa-github"></i> Github</li>
+                        <li><img src="images/images-skills/visualstuidio.png" alt="VSCode"> VS Code</li>
+                        <li class="extra-tech"><img src="images/images-skills/intellij.png" alt="IntelliJ"> IntelliJ IDE
+                        </li>
+                        <li><i class="fa-brands fa-docker"></i>Docker</li>
+                        <li><i class="fa-brands fa-figma"></i> Figma</li>
+                        <li><i class="fa-solid fa-code-fork"></i> Draw.io</li>
+                        <li><img src="images/images-skills/postman.png" alt="Postman"> Postman</li>
+                        <li><img src="images/images-skills/vbox.png" alt="Virtual Box"> Virtual Box</li>
+                    </ul>
+                </div>
+                <div></div>
+                <div class="tech-col">
+                    <h4>IA</h4>
+                    <ul class="tech-list native-imgs">
+                        <li><img src="images/images-skills/n8n.png" alt="n8n"> n8n</li>
+                        <li><img src="images/images-skills/vapi.png" alt="Vapi"> Vapi</li>
+                        <li><img src="images/images-skills/antigravity.png" alt="Antigravity"> Antigravity</li>
+                        <li><img src="images/images-skills/copilot.png" alt="Github Copilot"> Github Copilot</li>
+                        <li><i class="fa-solid fa-terminal"></i> Warp</li>
+                        <li><img src="images/images-skills/ollama.png" alt="Ollama"> Ollama</li>
+                        <li><img src="images/images-skills/opencode.png" alt="OpenCode"> OpenCode</li>
+                    </ul>
+                </div>
+                <div class="tech-col">
+                <h4>Sistemas Operativos</h4>
+                <ul class="tech-list native-imgs">
+                    <li><i class="fa-brands fa-linux"></i> Linux</li>
+                    <li><i class="fa-brands fa-windows"></i> Windows</li>
+                </ul>
+            </div>
+            </div>
+            
+
+            <div class="center-action" style="margin-top: 3.5rem; display: flex; justify-content: center;">
+                <button id="showMoreTechBtn" class="link-ghost-underlined">Ver todo el Stack</button>
+            </div>
+        </section>
+
+        <!-- 5. Proyectos -->
+        <section id="projects" class="section projects-grid-section hidden-scroll">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="backend">Backend</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
+                <button class="filter-btn" data-filter="escritorio">App Escritorio</button>
+                <button class="filter-btn" data-filter="ia">IA</button>
+            </div>
+
+            <div class="projects-2col">
+                <!-- Proyecto 1: Ertheo -->
+                <article class="project-card" data-category="backend frontend">
+                    <div class="project-img-wrapper photo-wrapper" style="background: linear-gradient(45deg, #1e293b, #0f172a);">
+                        <img src="images/proyectos/clinicapp.png" alt="Ertheo ClinicApp" onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'color: var(--text-secondary); font-family: var(--font-heading); font-size: 1.5rem;\'>Ertheo ClinicApp System</div>';">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Ertheo ClinicApp</h3>
+                        <p class="project-desc">Desarrollo de una plataforma de gestión de campus deportivos durante mis prácticas.Diseño de interfaces (Figma), arquitectura de la base de datos, backend utilizando Spring Boot 3.5 y frontend con React 19 para optimizar la logística de los usuarios. Aplicación desplegada en VPS con Docker por parte de la empresa.</p>
+                        <div class="project-pills">
+                            <span class="tech-pill">Spring Boot</span><span class="tech-pill">React</span><span class="tech-pill">Figma</span><span class="tech-pill">Mysql</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="link-btn" style="color: var(--text-secondary); cursor: default;"><i class="fa-solid fa-lock"></i> Proyecto de Empresa</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Proyecto 2: IA Ecosystem -->
+                <article class="project-card" data-category="ia">
+                    <div class="project-img-wrapper photo-wrapper" style="background: linear-gradient(45deg, #0f172a, #38BDF8);">
+                        <img src="images/proyectos/automatizacion-ai.png" alt="IA Ecosystem" onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'color: white; font-family: var(--font-heading); font-size: 1.5rem;\'>AI Automations</div>';">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Automatización de procesos con IA</h3>
+                        <p class="project-desc">Diseño y orquestación de workflows inteligentes utilizando n8n como motor central. Implementación de asistentes conversacionales integrando Vapi y ElevenLabs, conectado directamente con Google Calendar para automatizar la gestión de reservas.</p>
+                        <div class="project-pills">
+                            <span class="tech-pill">n8n</span><span class="tech-pill">Vapi</span><span class="tech-pill">ElevenLabs</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="link-btn" style="color: var(--text-secondary); cursor: default;"><i class="fa-solid fa-lock"></i> Proyecto de Empresa</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Proyecto 3: IA Landing Page -->
+                <article class="project-card" data-category="ia">
+                    <div class="project-img-wrapper photo-wrapper" style="background: linear-gradient(45deg, #0f172a, #38BDF8);">
+                        <img src="images/proyectos/ia-landing.png" alt="IA Ecosystem" onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'color: white; font-family: var(--font-heading); font-size: 1.5rem;\'>AI Automations</div>';">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Landing Page AI</h3>
+                        <p class="project-desc">Diseño y desarrollo de prototipo de landing page para un proyecto de automatización AI. Integración de Chatbot conectado a n8n, junto con formularios de contacto conectados a n8n para la atención al cliente. Implementación de un diseño moderno y responsive. Proyecto no finalizado.</p>
+                        <div class="project-pills">
+                            <span class="tech-pill">n8n</span><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="link-btn" style="color: var(--text-secondary); cursor: default;"><i class="fa-solid fa-lock"></i> Proyecto de Empresa</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Proyecto 4 -->
+                <article class="project-card" data-category="backend">
+                    <div class="project-img-wrapper photo-wrapper">
+                        <img src="images/proyectos/API_Rerservas.png" alt="API Reservas screenshot">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">API Reservas (Rest)</h3>
+                        <p class="project-desc">Sistema de reservas de vuelos y hoteles construido con modelo de
+                            arquitectura multicapa. Mi primer acercamiento a Spring Boot.</p>
+                        <div class="project-pills">
+                            <span class="tech-pill">Spring Boot</span><span class="tech-pill">Java</span><span
+                                class="tech-pill">API REST</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/JaimeBonBol/API_Reservas_Viajes" target="_blank"
+                                class="link-btn"><i class="fa-brands fa-github"></i> Repositorio</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Proyecto 2 -->
+                <article class="project-card" data-category="escritorio">
+                    <div class="project-img-wrapper photo-wrapper">
+                        <img src="images/proyectos/gestor-inventario.png" alt="Gestor de Inventario screenshot">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Gestor de Inventario</h3>
+                        <p class="project-desc">Aplicación de escritorio  para gestionar balances de stock de
+                            clientes y productos a través de una base de datos conectada localmente. Primer acercamiento JavaFX</p>
+                        <div class="project-pills">
+                            <span class="tech-pill">JavaFX</span><span class="tech-pill">Spring Boot</span><span
+                                class="tech-pill">MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/JaimeBonBol/Gestor-Inventario" target="_blank"
+                                class="link-btn"><i class="fa-brands fa-github"></i> Repositorio</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Proyecto 5 -->
+                <article class="project-card" data-category="backend">
+                    <div class="project-img-wrapper photo-wrapper">
+                        <img src="images/proyectos/to-do-list.png" alt="To Do List screenshot">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">To-Do List FullStack</h3>
+                        <p class="project-desc">Administrador clásico de tareas. Permite operaciones CRUD completas
+                            almacenando estado persistente con inyección MVC convencional.</p>
+                        <div class="project-pills">
+                            <span class="tech-pill">JSP-JSTL</span><span class="tech-pill">Spring Boot</span><span
+                                class="tech-pill">Frontend</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/JaimeBonBol/To-Do-List" target="_blank" class="link-btn"><i
+                                    class="fa-brands fa-github"></i> Repositorio</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 6. Trayectoria & Formación -->
+        <section id="timeline" class="section hidden-scroll">
+            <h2 class="section-title">Trayectoria & Formación</h2>
+
+            <div class="timeline-split-grid">
+
+                <!-- Columna B: Experiencia -->
+                <div class="timeline-column">
+                    <div class="timeline-col-header">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <h3>Experiencia Laboral</h3>
+                    </div>
+
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+
+                        <div class="timeline-node work-node">
+                            <div class="node-marker"></div>
+                            <div class="node-content">
+                                <span class="node-date">nov. 2025 ─ abr. 2026</span>
+                                <h4 class="node-title">Desarrollador FullStack</h4>
+                                <p class="node-desc">Ertheo Education & Sports. Desarrollo end-to-end de la logística Ertheo ClinicApp y del Ecosistema de IA orquestado en n8n con agentes conversacionales Vapi aplicados a la agenda. CI/CD ágil bajo revisiones cruzadas en GitHub Flow.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-node work-node">
+                            <div class="node-marker"></div>
+                            <div class="node-content">
+                                <span class="node-date">Ene 2025 ─ Mar 2025</span>
+                                <h4 class="node-title">Junior Developer</h4>
+                                <p class="node-desc">Universidad de Córdoba (Vicerrectorado). Desarrollo de aplicaciones
+                                    en prácticas del ciclo CFGS Multiplataforma.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-node work-node">
+                            <div class="node-marker"></div>
+                            <div class="node-content">
+                                <span class="node-date">Sep 2023 ─ Ago 2024</span>
+                                <h4 class="node-title">Técnico Sup. Automatismos</h4>
+                                <p class="node-desc">Automatismos Brenton SL. Cableado de cuadros eléctricos con PLCs
+                                    para la empresa y puesta en marcha posterior.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-node work-node">
+                            <div class="node-marker"></div>
+                            <div class="node-content">
+                                <span class="node-date">Jun 2023 ─ Jul 2023</span>
+                                <h4 class="node-title">Técnico Sup. Automatismos</h4>
+                                <p class="node-desc">Inselsoft SL. Prácticas enfocadas en despliegue de tareas lógicas y
+                                    programación de PLC avanzado.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna A: Formación -->
+                <div class="timeline-column">
+                    <div class="timeline-col-header">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <h3>Formación Académica</h3>
+                    </div>
+
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+
+                        <div class="timeline-node edu-node">
+                            <div class="node-marker"></div>
+                            <div class="node-content">
+                                <span class="node-date">2024 ─ 2026</span>
+                                <h4 class="node-title">CFGS Desarrollo Multiplataforma</h4>
+                                <p class="node-desc">IES Antonio Gala. Especialidad oficial enfocada en ingeniería de
+                                    software, arquitectura Backend con Java y FullStack.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-node edu-node">
+                            <div class="node-marker"></div>
+                            <div class="node-content">
+                                <span class="node-date">2022 ─ 2023</span>
+                                <h4 class="node-title">Esp. Fabricación Inteligente</h4>
+                                <p class="node-desc">IES Zoco. Formación orientada al entorno industrial avanzado e IOT.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-node edu-node">
+                            <div class="node-marker"></div>
+                            <div class="node-content">
+                                <span class="node-date">2020 ─ 2022</span>
+                                <h4 class="node-title">CFGS Automatización / Robótica</h4>
+                                <p class="node-desc">CDP Salesianos Palma del Río. Grado superior tecnológico sobre
+                                    automatismos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Habilidades / Professional Skills -->
+        <section id="certifications" class="section certifications-section hidden-scroll">
+            <h2 class="section-title">Habilidades y Certificaciones</h2>
+            <div class="cert-circles-container">
+                
+                <div class="cert-circle" data-title="Inglés B2 Cambridge" data-desc="Cambridge Assessment. Nivel profesional competente de comunicación. Fluidez escrita y leída para documentación técnica.">
+                    <i class="fa-solid fa-language"></i>
+                    <span class="cert-title">Inglés B2</span>
+                </div>
+
+                <div class="cert-circle" data-title="Licencia Conducción B" data-desc="Disponibilidad para movilidad geográfica.">
+                    <i class="fa-solid fa-car"></i>
+                    <span class="cert-title">Coche</span>
+                </div>
+
+                <div class="cert-circle" data-title="Trabajo en equipo" data-desc="Experiencia trabajando en equipo.">
+                    <i class="fa-solid fa-users"></i>
+                    <span class="cert-title">Trabajo en equipo</span>
+                </div>
+
+                <div class="cert-circle" data-title="Clean Architecture" data-desc="Aplicación práctica de principios SOLID y arquitecturas limpias multinivel (Controladores, Servicios, Repositorios).">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span class="cert-title">SOLID</span>
+                </div>
+
+                <div class="cert-circle" data-title="Github Flow" data-desc="Experiencia trabajando bajo el marco de trabajo Github Flow y versionado con control distribuido (Git).">
+                    <i class="fa-solid fa-code-fork"></i>
+                    <span class="cert-title">Github Flow</span>
+                </div>
+                
+                <div class="cert-circle" data-title="IA" data-desc="Cursos de iniciación al desarrollo con IA">
+                    <i class="fa-solid fa-robot"></i>
+                    <span class="cert-title">Cursos IA</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 8. Footer -->
+    <footer id="contact" class="footer-massive hidden-scroll">
+        <div class="footer-massive-content">
+            <h2 class="massive-contact">¿Hablamos?</h2>
+            <a href="mailto:jaimebonilla.dev@gmail.com" class="btn-primary huge-btn">Escríbeme al correo</a>
+
+
+            <div class="footer-raw-links">
+                <a href="#projects">Ver Proyectos</a>
+                <a href="https://github.com/JaimeBonBol" target="_blank">Perfil de Github</a>
+                <a href="https://www.linkedin.com/in/jaimebonilla-dev" target="_blank">Perfil Linkedin</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <p>&copy; 2026 Jaime Bonilla. Todos los derechos reservados.<br>
+            <span style="opacity: 0.5; font-size: 0.85rem; font-weight: 400;">Iconografía externa proveída bajo licencia <a href="https://fontawesome.com/license/free" target="_blank" style="color: inherit; text-decoration: underline;">FontAwesome Free</a>.</span></p>
+            <div class="footer-mini-socials">
+                <a href="https://www.linkedin.com/in/jaimebonilla-dev" aria-label="LinkedIn" target="_blank"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/JaimeBonBol" aria-label="GitHub" target="_blank"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="mailto:jaimebonilla.dev@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Volver Arriba -->
+    <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+
+    <!-- CertModal Invisible por defecto -->
+    <div id="certModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            <h3 id="modalTitle">Título Modal</h3>
+            <p id="modalDesc">Descripción completa del certificado o habilidad.</p>
+        </div>
+    </div>
+
+    <!-- Script Principal -->
+    <script src="script.js"></script>
 
 </body>
 
