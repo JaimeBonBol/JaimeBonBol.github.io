@@ -1043,6 +1043,13 @@ section {
 
     .timeline-node {
         padding-bottom: 3rem;
+        text-align: left;
+    }
+
+    .timeline-node .node-date,
+    .timeline-node .node-title,
+    .timeline-node .node-desc {
+        text-align: left;
     }
 
     .cert-item {
@@ -1074,8 +1081,21 @@ section {
     }
 
     .massive-contact {
-        font-size: 3.5rem;
+        font-size: clamp(2.5rem, 12vw, 3.5rem);
         padding: 0 1rem;
+    }
+
+    .btn-primary.huge-btn {
+        width: calc(100% - 2rem);
+        max-width: 340px;
+        font-size: clamp(0.85rem, 4vw, 1.2rem);
+        padding: 1rem;
+        box-sizing: border-box;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0 auto 4rem auto;
     }
 
     .footer-bottom-bar {
