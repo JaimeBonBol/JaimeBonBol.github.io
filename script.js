@@ -315,3 +315,89 @@ if (subtitle) {
     setTimeout(typeWriter, 500);
 }
 
+// ====== Lógica de Carrusel de Proyectos ======
+document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.project-carousel');
+
+    carousels.forEach(carousel => {
+        const wrapper = carousel.closest('.project-img-wrapper');
+        if (!wrapper) return;
+
+        const prevBtn = wrapper.querySelector('.carousel-btn.prev');
+        const nextBtn = wrapper.querySelector('.carousel-btn.next');
+        const indicators = wrapper.querySelectorAll('.indicator');
+        const images = carousel.querySelectorAll('img');
+
+        if (!prevBtn || !nextBtn) return;
+
+        let currentIndex = 0;
+        const totalImages = images.length;
+
+        const updateCarousel = (index) => {
+            if (index < 0) index = totalImages - 1;
+            if (index >= totalImages) index = 0;
+            
+            currentIndex = index;
+            
+            // Desplazamiento suave al elemento objetivo
+            const targetImg = images[currentIndex];
+            if (targetImg) {
+                carousel.scrollTo({
+                    left: targetImg.offsetLeft,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Actualizar indicadores
+            indicators.forEach((ind, i) => {
+                if (i === currentIndex) {
+                    ind.classList.add('active');
+                } else {
+                    ind.classList.remove('active');
+                }
+            });
+        };
+
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            updateCarousel(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            updateCarousel(currentIndex + 1);
+        });
+
+        // Permitir clic en indicadores individuales
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                updateCarousel(index);
+            });
+        });
+
+        // Sincronizar indicadores con el scroll manual (e.g. táctil en móviles)
+        let scrollTimeout;
+        carousel.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const width = carousel.clientWidth;
+                const newIndex = Math.round(carousel.scrollLeft / width);
+                if (newIndex !== currentIndex && newIndex >= 0 && newIndex < totalImages) {
+                    currentIndex = newIndex;
+                    indicators.forEach((ind, i) => {
+                        if (i === currentIndex) {
+                            ind.classList.add('active');
+                        } else {
+                            ind.classList.remove('active');
+                        }
+                    });
+                }
+            }, 100);
+        });
+    });
+});
+
